@@ -3,61 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday</title>
+  <title>To My Dearest</title>
   <style>
+    :root {
+      --bg-color: #fff0f5;
+      --paper-color: #fff;
+      --text-color: #333;
+      --accent-color: #d63384;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #ffe6f0, #ffd6e7);
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: var(--bg-color);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
     }
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
+
+    .letter {
+      background: var(--paper-color);
+      padding: 2rem 1.5rem;
+      margin: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       max-width: 600px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 100%;
     }
-    h1 {
-      color: #e91e63;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .message {
-      font-size: 1.1rem;
-      color: #444;
-      line-height: 1.6;
-      white-space: pre-wrap;
-      text-align: left;
-    }
-    .signature {
-      margin-top: 2rem;
-      font-style: italic;
-      color: #888;
+
+    .date {
       text-align: right;
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .greeting {
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .body {
+      color: var(--text-color);
+      line-height: 1.7;
+      white-space: pre-wrap;
+      text-indent: 2em;
+      font-size: 1.05rem;
+    }
+
+    .closing {
+      margin-top: 2rem;
+      text-align: right;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .letter {
+        padding: 2.5rem 3rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Happy Birthday, My Love!</h1>
-    <div class="message">
-      <!-- Write your letter below -->
-      
-      
-      
-      
-      
+  <div class="letter">
+    <div class="date">July 5, 2025</div>
+
+    <div class="greeting">My Dearest [Her Name],</div>
+
+    <div class="body">
+      <!-- ✍️ Start writing your heartfelt message here -->
+
+
+
       
       
       
     </div>
-    <div class="signature">– [Your Name]</div>
+
+    <div class="closing">
+      With all my love,<br>
+      [Your Name]
+    </div>
   </div>
 </body>
 </html>
