@@ -21,9 +21,9 @@
 
     .flipbook {
       perspective: 2000px;
-      width: 90vw;
+      width: 100vw;
       max-width: 700px;
-      height: 90vh;
+      height: 100vh;
       position: relative;
     }
 
@@ -39,10 +39,10 @@
       transform-origin: left;
       transition: transform 1s ease;
       backface-visibility: hidden;
-      overflow-y: hidden;
+      overflow-y: auto;
       padding: 2rem 1.5rem;
       line-height: 1.6;
-      font-size: 0.95rem;
+      font-size: 1rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -54,11 +54,14 @@
       white-space: pre-wrap;
     }
 
-   .page.cover {
-  background: url('bday.jpg') no-repeat center center;
-  background-size: cover;
-  padding: 0;
-}
+    .page.cover {
+      background-image: url('bday.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-color: #fff0f5;
+      padding: 0;
+    }
 
     .page:nth-child(1) { z-index: 6; background: #fffdfc; }
     .page:nth-child(2) { z-index: 5; background: #fffaf9; }
@@ -73,10 +76,6 @@
       z-index: 0 !important;
     }
 
-    .nav {
-      display: none;
-    }
-
     .flipbook::after {
       content: "";
       position: absolute;
@@ -86,6 +85,23 @@
       height: 100%;
       z-index: 100;
       cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 1.2rem 1rem;
+        font-size: 0.95rem;
+      }
+      .page-content {
+        max-width: 95%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 1rem 0.7rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -104,45 +120,45 @@
     <!-- Letter Page 1 -->
     <div class="page">
       <div class="page-content">
-        <p style="margin: 0.3em 0;">Happy Birthday my Dear poyo,</p>
-        <p style="margin: 0.3em 0;">It's been 3 years since the day my eyes and heart fell for you baby, and since then every beat of my heart sounded like a rhythm that only played for you.</p>
-        <p style="margin: 0.3em 0;">Your existence is a blessing itself my love, even having your 22th year today makes it much more special. For you are kind and loving and the most empathetic person I know.</p>
-        <p style="margin: 0.3em 0;">And you may not see it, but everything you do glows and everything about you is as charming my love. the way you consider everyone around you and care for them makes you so much beautiful than you already is.</p>
-        <p style="margin: 0.3em 0;">Oh for your beauty my love, it engulfs my very soul with pure joy and purpose, to serve and love you with everything that I am.</p>
+        <p>Happy Birthday my Dear poyo,</p>
+        <p>It's been 3 years since the day my eyes and heart fell for you baby, and since then every beat of my heart sounded like a rhythm that only played for you.</p>
+        <p>Your existence is a blessing itself my love, even having your 22th year today makes it much more special. For you are kind and loving and the most empathetic person I know.</p>
+        <p>And you may not see it, but everything you do glows and everything about you is as charming my love. the way you consider everyone around you and care for them makes you so much beautiful than you already is.</p>
+        <p>Oh for your beauty my love, it engulfs my very soul with pure joy and purpose, to serve and love you with everything that I am.</p>
       </div>
     </div>
 
     <!-- Letter Page 1.5 -->
     <div class="page">
       <div class="page-content">
-        <p style="margin: 0.3em 0;">Your Eyes,<br>better than the stars, Oh how much I'd rather gaze upon them. Eyes that possesses such astral beauty that exceeds every cosmic wonders. If I were close to the stars, you'd still shine brighter. Then again, how could stars compare to you, when your love and beauty hold me much closer than any gravity.</p>
-        <p style="margin: 0.3em 0;">Your Lips,<br>as plum as the ripest fruit, sweeter than cherry. I could kiss them every day of our lives my love, then maybe? we'll also have our sweet moments daily.</p>
-        <p style="margin: 0.3em 0;">Your Hair,<br>fragrant as flowers, and so soft that I could lay on to sleep for eternity.</p>
+        <p>Your Eyes,<br>better than the stars, Oh how much I'd rather gaze upon them. Eyes that possesses such astral beauty that exceeds every cosmic wonders. If I were close to the stars, you'd still shine brighter. Then again, how could stars compare to you, when your love and beauty hold me much closer than any gravity.</p>
+        <p>Your Lips,<br>as plum as the ripest fruit, sweeter than cherry. I could kiss them every day of our lives my love, then maybe? we'll also have our sweet moments daily.</p>
+        <p>Your Hair,<br>fragrant as flowers, and so soft that I could lay on to sleep for eternity.</p>
       </div>
     </div>
 
     <!-- Letter Page 2 -->
     <div class="page">
       <div class="page-content">
-        <p style="margin: 0.3em 0;">Your Skin,<br>smoother than any silk, Oh how much I long for your very touch daily baby. </p>
-        <p style="margin: 0.3em 0;">Your Smile,<br>breathtaking... Oh how God made you the prettiest most beautiful creation my eyes ever laid on, my prettiest girl I'll forever protect it, for your smiles is joy's manifestation my baby.</p>
-        <p style="margin: 0.5em 0;">And if i were to write more it wouldn't be a letter anymore my love, but a decalogy.</p>
-        <p style="margin: 0.5em 0;">And I'm nothing but blessed to know that all this time, God made us for each other,</p>
-        <p style="margin: 0.5em 0;">That I'm made to serve and love you every day of our lives.</p>
+        <p>Your Skin,<br>smoother than any silk, Oh how much I long for your very touch daily baby.</p>
+        <p>Your Smile,<br>breathtaking... Oh how God made you the prettiest most beautiful creation my eyes ever laid on, my prettiest girl I'll forever protect it, for your smiles is joy's manifestation my baby.</p>
+        <p>And if I were to write more it wouldn't be a letter anymore my love, but a decalogy.</p>
+        <p>And I'm nothing but blessed to know that all this time, God made us for each other,</p>
+        <p>That I'm made to serve and love you every day of our lives.</p>
       </div>
     </div>
 
     <!-- Letter Page 2.5 -->
     <div class="page">
       <div class="page-content">
-        <p style="margin: 0.5em 0;">You brightened my world baby, brightened it so much that it overshadowed every dreadful feeling in my very being.</p>
-        <p style="margin: 0.5em 0;">And maybe I'm a loser inlove, but I know loving you is the most pleasing feeling, so we're just winning.</p>
-        <p style="margin: 0.5em 0;">Happy Birthday again my babyy, may God blesses you with unending blessing and fortune.</p>
-        <p style="margin: 0.5em 0;">I love youu till the end of time my love. </p>
-         <p style="margin: 0.5em 0;">Forever yours,<br>AJ</p>
+        <p>You brightened my world baby, brightened it so much that it overshadowed every dreadful feeling in my very being.</p>
+        <p>And maybe I'm a loser inlove, but I know loving you is the most pleasing feeling, so we're just winning.</p>
+        <p>Happy Birthday again my babyy, may God blesses you with unending blessing and fortune.</p>
+        <p>I love youu till the end of time my love.</p>
+        <p>Forever yours,<br>AJ</p>
       </div>
     </div>
-      
+  </div>
 
   <script>
     const pages = document.querySelectorAll(".page");
