@@ -2,135 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Birthday Flipbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Letter Flipbook</title>
   <style>
     * {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
       background: #fff0f5;
+      font-family: 'Georgia', serif;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      padding: 1rem;
+      overflow: hidden;
     }
 
-    .book {
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border-radius: 16px;
-      width: 100%;
-      max-width: 420px;
-      padding: 1.5rem;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .flipbook {
+      perspective: 2000px;
+      width: 90vw;
+      max-width: 700px;
+      height: 90vh;
+      position: relative;
     }
 
     .page {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #333;
-      white-space: pre-wrap;
-      min-height: 75vh;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: left;
+      transition: transform 1s ease;
+      backface-visibility: hidden;
+      overflow-y: hidden;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
       display: flex;
+      justify-content: center;
       align-items: center;
+      text-align: left;
     }
 
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1.5rem;
+    .page-content {
+      max-width: 450px;
+      white-space: pre-wrap;
     }
 
-    button {
-      flex: 1;
-      padding: 0.8rem;
-      font-family: inherit;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #d63384;
-      color: white;
+   .page.cover {
+  background: url('bday.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 0;
+}
+
+    .page:nth-child(1) { z-index: 6; background: #fffdfc; }
+    .page:nth-child(2) { z-index: 5; background: #fffaf9; }
+    .page:nth-child(3) { z-index: 4; background: #fffefb; }
+    .page:nth-child(4) { z-index: 3; background: #fffaf9; }
+    .page:nth-child(5) { z-index: 2; background: #fff6f3; }
+    .page:nth-child(6) { z-index: 1; background: #fffaf8; }
+    .page:nth-child(7) { z-index: 0; background: #fff9f6; }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+      z-index: 0 !important;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .flipbook::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 100;
       cursor: pointer;
-      margin: 0 0.5rem;
-      transition: background-color 0.3s;
-    }
-
-    button:disabled {
-      background-color: #bbb;
-      cursor: not-allowed;
-    }
-
-    @media (min-width: 768px) {
-      .page {
-        min-height: 500px;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="book">
-    <div class="page" id="page-content"></div>
-    <div class="nav-buttons">
-      <button id="prevBtn" onclick="prevPage()">Back</button>
-      <button id="nextBtn" onclick="nextPage()">Next</button>
+  <div class="flipbook" onclick="handleFlip(event)">
+    <!-- Title Page -->
+    <div class="page">
+      <div class="page-content">
+        <h1 style="margin-bottom: 0.5em; font-size: 2rem; text-align: center;">To My Love</h1>
+      </div>
     </div>
-  </div>
+
+    <!-- Cover Photo Page -->
+    <div class="page cover"></div>
+
+    <!-- Letter Page 1 -->
+    <div class="page">
+      <div class="page-content">
+        <p style="margin: 0.3em 0;">Happy Birthday my Dear poyo,</p>
+        <p style="margin: 0.3em 0;">It's been 3 years since the day my eyes and heart fell for you baby, and since then every beat of my heart sounded like a rhythm that only played for you.</p>
+        <p style="margin: 0.3em 0;">Your existence is a blessing itself my love, even having your 22th year today makes it much more special. For you are kind and loving and the most empathetic person I know.</p>
+        <p style="margin: 0.3em 0;">And you may not see it, but everything you do glows and everything about you is as charming my love. the way you consider everyone around you and care for them makes you so much beautiful than you already is.</p>
+        <p style="margin: 0.3em 0;">Oh for your beauty my love, it engulfs my very soul with pure joy and purpose, to serve and love you with everything that I am.</p>
+      </div>
+    </div>
+
+    <!-- Letter Page 1.5 -->
+    <div class="page">
+      <div class="page-content">
+        <p style="margin: 0.3em 0;">Your Eyes,<br>better than the stars, Oh how much I'd rather gaze upon them. Eyes that possesses such astral beauty that exceeds every cosmic wonders. If I were close to the stars, you'd still shine brighter. Then again, how could stars compare to you, when your love and beauty hold me much closer than any gravity.</p>
+        <p style="margin: 0.3em 0;">Your Lips,<br>as plum as the ripest fruit, sweeter than cherry. I could kiss them every day of our lives my love, then maybe? we'll also have our sweet moments daily.</p>
+        <p style="margin: 0.3em 0;">Your Hair,<br>fragrant as flowers, and so soft that I could lay on to sleep for eternity.</p>
+      </div>
+    </div>
+
+    <!-- Letter Page 2 -->
+    <div class="page">
+      <div class="page-content">
+        <p style="margin: 0.3em 0;">Your Skin,<br>smoother than any silk, Oh how much I long for your very touch daily baby. </p>
+        <p style="margin: 0.3em 0;">Your Smile,<br>breathtaking... Oh how God made you the prettiest most beautiful creation my eyes ever laid on, my prettiest girl I'll forever protect it, for your smiles is joy's manifestation my baby.</p>
+        <p style="margin: 0.5em 0;">And if i were to write more it wouldn't be a letter anymore my love, but a decalogy.</p>
+        <p style="margin: 0.5em 0;">And I'm nothing but blessed to know that all this time, God made us for each other,</p>
+        <p style="margin: 0.5em 0;">That I'm made to serve and love you every day of our lives.</p>
+      </div>
+    </div>
+
+    <!-- Letter Page 2.5 -->
+    <div class="page">
+      <div class="page-content">
+        <p style="margin: 0.5em 0;">You brightened my world baby, brightened it so much that it overshadowed every dreadful feeling in my very being.</p>
+        <p style="margin: 0.5em 0;">And maybe I'm a loser inlove, but I know loving you is the most pleasing feeling, so we're just winning.</p>
+        <p style="margin: 0.5em 0;">Happy Birthday again my babyy, may God blesses you with unending blessing and fortune.</p>
+        <p style="margin: 0.5em 0;">I love youu till the end of time my love. </p>
+         <p style="margin: 0.5em 0;">Forever yours,<br>AJ</p>
+      </div>
+    </div>
+      
 
   <script>
-    const pages = [
-`Happy Birthday my love, It's been 3 years since the day my eyes and heart fell for you, and since then every beat of my heart sounded like a rhythm that only played for you.
+    const pages = document.querySelectorAll(".page");
+    let current = 0;
 
-My vision is filled with your unmatched beauty.
-
-Oh, your beauty, my love, it engulfs my very soul with pure joy and purpose, to serve and love you with everything that I am.`,
-
-`And I'm nothing but blessed to know that all this time, God made us for each other, that I'm made to serve and love you every day of our lives.
-
-You brightened my world, brightened it so much that it overshadowed every dreadful feeling in my very being.
-
-As I yearn for your touch, oh your beauty, my love...
-
-It engulfs my soul to serve and love you with everything that I am.
-
-It is unmatched, and it is the most... beautiful.`
-    ];
-
-    let currentPage = 0;
-
-    const pageContent = document.getElementById("page-content");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    function updatePage() {
-      pageContent.textContent = pages[currentPage];
-      prevBtn.disabled = currentPage === 0;
-      nextBtn.disabled = currentPage === pages.length - 1;
+    function updatePages() {
+      pages.forEach((page, i) => {
+        page.classList.toggle("flipped", i < current);
+      });
     }
 
     function nextPage() {
-      if (currentPage < pages.length - 1) {
-        currentPage++;
-        updatePage();
+      if (current < pages.length) {
+        current++;
+        updatePages();
       }
     }
 
     function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        updatePage();
+      if (current > 0) {
+        current--;
+        updatePages();
       }
     }
 
-    // Initialize
-    updatePage();
+    function handleFlip(e) {
+      const bounds = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - bounds.left;
+      if (x > bounds.width / 2) {
+        nextPage();
+      } else {
+        prevPage();
+      }
+    }
   </script>
 </body>
 </html>
