@@ -3,90 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>To My Dearest</title>
+  <title>Birthday Flipbook</title>
   <style>
-    :root {
-      --bg-color: #fff0f5;
-      --paper-color: #fff;
-      --text-color: #333;
-      --accent-color: #d63384;
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Georgia', serif;
-      background: var(--bg-color);
+      background: #fff0f5;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding: 1rem;
     }
 
-    .letter {
-      background: var(--paper-color);
-      padding: 2rem 1.5rem;
-      margin: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+    .book {
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 16px;
       width: 100%;
+      max-width: 420px;
+      padding: 1.5rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .date {
-      text-align: right;
-      color: var(--text-color);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .greeting {
-      margin-bottom: 1rem;
-      font-weight: bold;
-    }
-
-    .body {
-      color: var(--text-color);
-      line-height: 1.7;
-      white-space: pre-wrap;
-      text-indent: 2em;
+    .page {
       font-size: 1.05rem;
+      line-height: 1.7;
+      color: #333;
+      white-space: pre-wrap;
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
     }
 
-    .closing {
-      margin-top: 2rem;
-      text-align: right;
-      font-style: italic;
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    button {
+      flex: 1;
+      padding: 0.8rem;
+      font-family: inherit;
       font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #d63384;
+      color: white;
+      cursor: pointer;
+      margin: 0 0.5rem;
+      transition: background-color 0.3s;
     }
 
-    @media (min-width: 600px) {
-      .letter {
-        padding: 2.5rem 3rem;
+    button:disabled {
+      background-color: #bbb;
+      cursor: not-allowed;
+    }
+
+    @media (min-width: 768px) {
+      .page {
+        min-height: 500px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="letter">
-    <div class="date">July 5, 2025</div>
-
-    <div class="greeting">My Dearest [Her Name],</div>
-
-    <div class="body">
-      <!-- ✍️ Start writing your heartfelt message here -->
-
-
-
-      
-      
-      
-    </div>
-
-    <div class="closing">
-      With all my love,<br>
-      [Your Name]
+  <div class="book">
+    <div class="page" id="page-content"></div>
+    <div class="nav-buttons">
+      <button id="prevBtn" onclick="prevPage()">Back</button>
+      <button id="nextBtn" onclick="nextPage()">Next</button>
     </div>
   </div>
+
+  <script>
+    const pages = [
+`Happy Birthday my love, It's been 3 years since the day my eyes and heart fell for you, and since then every beat of my heart sounded like a rhythm that only played for you.
+
+My vision is filled with your unmatched beauty.
+
+Oh, your beauty, my love, it engulfs my very soul with pure joy and purpose, to serve and love you with everything that I am.`,
+
+`And I'm nothing but blessed to know that all this time, God made us for each other, that I'm made to serve and love you every day of our lives.
+
+You brightened my world, brightened it so much that it overshadowed every dreadful feeling in my very being.
+
+As I yearn for your touch, oh your beauty, my love...
+
+It engulfs my soul to serve and love you with everything that I am.
+
+It is unmatched, and it is the most... beautiful.`
+    ];
+
+    let currentPage = 0;
+
+    const pageContent = document.getElementById("page-content");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function updatePage() {
+      pageContent.textContent = pages[currentPage];
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage === pages.length - 1;
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updatePage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updatePage();
+      }
+    }
+
+    // Initialize
+    updatePage();
+  </script>
 </body>
 </html>
